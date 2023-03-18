@@ -1,4 +1,4 @@
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useState, useEffect } from "react";
 import { auth } from "../firebase";
 
@@ -14,12 +14,25 @@ const AuthDetails = () => {
       }
     });
   });
+
+  const signOutUser = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("user was signed out!!");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <div>
       {authUser ? (
         <>
-          {" "}
-          {`We have a secret word for you ${authUser.email} ! It is FIREBASE`}
+          <p>
+            {`We have a secret word for you ${authUser.email} ! It is FIREBASE`}
+          </p>
+          <button onClick={signOutUser}>Sign Out</button>
         </>
       ) : (
         <>You do not have access to the secret word!!!</>
