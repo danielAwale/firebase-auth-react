@@ -1,5 +1,6 @@
 import SignIn from "./component/SignIn";
 import SignUp from "./component/SignUp";
+import AuthDetails from "./component/AuthDetails";
 
 function App() {
   return (
@@ -7,6 +8,8 @@ function App() {
       <SignUp />
       <p>Already a member?</p>
       <SignIn />
+
+      <AuthDetails />
     </div>
   );
 }

@@ -17,7 +17,10 @@ const AuthDetails = () => {
   return (
     <div>
       {authUser ? (
-        <>We have a secret word for you! It is FIREBASE</>
+        <>
+          {" "}
+          {`We have a secret word for you ${authUser.email} ! It is FIREBASE`}
+        </>
       ) : (
         <>You do not have access to the secret word!!!</>
       )}
